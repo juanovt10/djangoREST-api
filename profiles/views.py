@@ -7,6 +7,7 @@ from .models import Profile
 from .serializers import ProfileSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
+
 class ProfileList(APIView):
     """
     This view lists the app's exisiting profiles
