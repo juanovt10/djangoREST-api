@@ -1,13 +1,13 @@
 from rest_framework import serializers
 from .models import Post
 
-class PostSerializer(serializer.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
-    profie_id = serializers.ReadOnlyField(source='owner.id')
-    profile_img = serializers.ReadOnlyField(source='owner.image')
+    profile_id = serializers.ReadOnlyField(source='owner.profile.id')
+    profile_img = serializers.ReadOnlyField(source='owner.profile.image.url')
 
-    def validated_image(self, value):
+    def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
             raise serializers.ValidationError(
                 'Image size larger than 2MB'
@@ -28,9 +28,9 @@ class PostSerializer(serializer.ModelSerializer):
         return request.user == obj.owner
 
     class Meta:
-        model: Post
+        model = Post
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'title',
-            'content', 'image', 'is_owner', 'profie_id', 'profile_img',
+            'content', 'image', 'is_owner', 'profile_id', 'profile_img',
             'image_filter',
         ]
