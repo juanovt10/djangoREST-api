@@ -54,7 +54,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-juanovt10-djangorestapi-ohfkyoa8ark.ws-eu107.gitpod.io',
-    'https://drf-walk-app-4288386a2e75.herokuapp.com',
+    'drf-walk-app-4288386a2e75.herokuapp.com',
 ]
 
 
@@ -137,7 +137,6 @@ WSGI_APPLICATION = 'drf_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 
 
 if 'DEV' in os.environ:
