@@ -18,7 +18,7 @@ class CommentSerializer(serializers.ModelSerializer):
         return naturaltime(obj.created_at)
 
     def get_updated_at(sefl, obj):
-        return naturaltime(obj.updated_aat)
+        return naturaltime(obj.updated_at)
 
     class Meta:
         model = Comment
